@@ -1,3 +1,4 @@
+// -------------------- DATA --------------------
 let description =
   "Hampi was the capital of the Vijayanagara Empire and is known for its stone temples.";
 
@@ -10,20 +11,23 @@ let videos = [
   "https://www.youtube.com/watch?v=-1hfo-RyyGA"
 ];
 
+// -------------------- RENDER --------------------
 function render() {
   document.getElementById("descText").innerText = description;
 
+  // Photos
   const photoDiv = document.getElementById("photoGallery");
   photoDiv.innerHTML = "";
   photos.forEach((p, i) => {
     photoDiv.innerHTML += `
       <div class="card">
-        <img src="${p}" onclick="openLightbox('${p}')">
+        <img src="${p}" class="lightbox-img" data-src="${p}">
         <span class="edit" onclick="editPhoto(${i})">✏️</span>
       </div>
     `;
   });
 
+  // Videos
   const videoDiv = document.getElementById("videoGallery");
   videoDiv.innerHTML = "";
   videos.forEach((v, i) => {
@@ -37,6 +41,7 @@ function render() {
   });
 }
 
+// -------------------- EDIT FUNCTIONS --------------------
 function editDescription() {
   const newDesc = prompt("Enter new description:", description);
   if (newDesc) {
@@ -61,6 +66,7 @@ function editVideo(index) {
   }
 }
 
+// -------------------- LIGHTBOX --------------------
 function openLightbox(src) {
   const lightbox = document.getElementById("lightbox");
   const img = document.getElementById("lightboxImg");
@@ -72,5 +78,12 @@ function closeLightbox() {
   document.getElementById("lightbox").classList.add("hidden");
 }
 
+// Event delegation for image click (WORKS ONLINE)
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("lightbox-img")) {
+    openLightbox(e.target.dataset.src);
+  }
+});
 
-render();
+// -------------------- INIT --------------------
+window.onload = render;
