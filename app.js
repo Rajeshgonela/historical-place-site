@@ -18,7 +18,7 @@ function render() {
   photos.forEach((p, i) => {
     photoDiv.innerHTML += `
       <div class="card">
-        <img src="${p}">
+        <img src="${p}" onclick="openLightbox('${p}')">
         <span class="edit" onclick="editPhoto(${i})">✏️</span>
       </div>
     `;
@@ -60,5 +60,17 @@ function editVideo(index) {
     render();
   }
 }
+
+function openLightbox(src) {
+  const lightbox = document.getElementById("lightbox");
+  const img = document.getElementById("lightboxImg");
+  img.src = src;
+  lightbox.classList.remove("hidden");
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.add("hidden");
+}
+
 
 render();

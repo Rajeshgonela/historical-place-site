@@ -1,51 +1,136 @@
+/* Global */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   background: #f6f6f6;
+  animation: fadeIn 0.6s ease-in;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero */
 .hero {
-  background: #222;
+  background: linear-gradient(135deg, #1c1c1c, #333);
   color: white;
-  padding: 40px;
+  padding: 50px 40px;
   position: relative;
 }
 
-.edit {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
+/* Section */
 .section {
   max-width: 1000px;
-  margin: 40px auto;
+  margin: 50px auto;
   padding: 0 20px;
 }
 
+/* Gallery grid */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
+  gap: 20px;
 }
 
+/* Card */
 .card {
   position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Images & videos */
 .card img,
 .card iframe {
   width: 100%;
-  border-radius: 8px;
+  height: 100%;
+  border-radius: 12px;
+  transition: transform 0.5s ease;
 }
 
-.card .edit {
+/* Subtle zoom on hover */
+.card:hover img,
+.card:hover iframe {
+  transform: scale(1.05);
+}
+
+/* Edit icon (hidden by default) */
+.edit {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: white;
-  padding: 4px 6px;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 8px;
   border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Show edit icon only on hover */
+.card:hover .edit,
+.hero:hover .edit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover feedback for icon */
+.edit:hover {
+  background: #ffcc80;
+}
+
+/* Video spacing */
+#videoGallery .card {
+  margin-bottom: 30px;
+}
+
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  animation: zoomIn 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
