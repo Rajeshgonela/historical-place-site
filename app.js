@@ -2,8 +2,8 @@ let description =
   "Hampi was the capital of the Vijayanagara Empire and is known for its stone temples.";
 
 let photos = [
-  "https://upload.wikimedia.org/wikipedia/commons/6/6f/Hampi_virupaksha_temple.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/3/3e/Hampi_stone_chariot.jpg"
+  "https://stock.adobe.com/search?k=hampi",
+  "https://stock.adobe.com/search?k=hampi"
 ];
 
 let videos = [
