@@ -2,12 +2,12 @@ let description =
   "Hampi was the capital of the Vijayanagara Empire and is known for its stone temples.";
 
 let photos = [
-  "https://stock.adobe.com/search?k=hampi",
-  "https://stock.adobe.com/search?k=hampi"
+  "https://t4.ftcdn.net/jpg/03/75/40/73/360_F_375407347_spt4AF5sxsIt9gBIKVzJl95tiQhEGNXy.jpg",
+  "https://t4.ftcdn.net/jpg/05/14/35/87/240_F_514358705_s8m53VS3BCSaCClrbOnOGyG5jnbc3bW8.jpg"
 ];
 
 let videos = [
-  "https://www.youtube.com/watch?v=4v8n6ZqUqO8"
+  "https://www.youtube.com/watch?v=-1hfo-RyyGA"
 ];
 
 function render() {
